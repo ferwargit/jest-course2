@@ -24,3 +24,36 @@ describe("example test", () => {
     
 });
 
+describe("truthy or falsy for null", () => {
+    it("null is falsy", () => {
+        const n = null;
+        expect(n).toBeFalsy();
+        // Otra forma de probarlo:
+        expect(n).not.toBeTruthy();
+        // 
+        expect(n).toBeNull();
+        // Esta prueba falla porque null no es igual a undefined
+        // expect(n).toBeUndefined();
+        // Lo que puedo hacer es añadirle un .not
+        expect(n).not.toBeUndefined();
+    });
+});
+
+describe("truthy or falsy for 0", () => {
+    it("0 is falsy", () => {
+        const n = 0;
+        expect(n).toBeFalsy();
+        // Otra forma de probarlo:
+        expect(n).not.toBeTruthy();
+    });
+});
+
+describe("truthy or falsy for empty string", () => {
+    it("empty string is falsy", () => {
+        const n = "";
+        expect(n).toBeFalsy();
+        // Otra forma de probarlo:
+        expect(n).not.toBeTruthy();
+    });
+});
+
