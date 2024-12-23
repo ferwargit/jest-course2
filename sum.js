@@ -3,6 +3,8 @@ function sum(num1, num2) {
     return num1 + num2;
 }
 
+// module.exports = sum;
+
 // console.log( 3 === 3);
 // console.log( "" === "");
 
@@ -52,4 +54,8 @@ function sum(num1, num2) {
 //     console.log("this is falsy");
 // }
 
-module.exports = sum;
+function compileAndroidCode() {
+    throw new Error("you are using the wrong JDK");
+}
+
+module.exports = { sum, compileAndroidCode };

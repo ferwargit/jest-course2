@@ -1,5 +1,6 @@
 // ./sum.test.js
-const sum = require("./sum");
+// const sum = require("./sum");
+const { sum, compileAndroidCode } = require("./sum");
 
 describe("example test", () => {
 
@@ -10,18 +11,18 @@ describe("example test", () => {
 
     it("object assignment", () => {
         const obj = {}; // Creamos un objeto vacío y lo asignamos a la variable obj
-    
+
         // Este primer test falla porque .toBe compara la referencia de los objetos.
         // Aunque ambos son objetos vacíos, son instancias diferentes en memoria.
         // Por lo tanto, obj y {} no son el mismo objeto, lo que hace que la comparación falle.
         // expect(obj).toBe({}); // Falla: obj y {} son diferentes instancias.
-    
+
         // Este segundo test pasa porque .toEqual compara el contenido de los objetos.
         // Aunque obj y {} son diferentes instancias, ambos tienen las mismas propiedades
         // (en este caso, ninguna), así que su contenido es considerado igual.
         expect(obj).toEqual({}); // Pasa: obj y {} tienen el mismo contenido.
     });
-    
+
 });
 
 describe("truthy or falsy for null", () => {
@@ -78,5 +79,33 @@ describe("numbers", () => {
 
 });
 
+describe("strings", () => {
+    it("there is no I in team", () => {
+        expect("team").not.toMatch(/I/);
+    });
+});
 
-    
+describe("arrays", () => {
+    const shoppingList = [
+        "diapers", "kleenex", "trash bags", "paper towels", "milk"
+    ];
+    it("the shopping list has milk on it", () => {
+        // Esperamos que la lista contenga "milk"
+        expect(shoppingList).toContain("milk");
+    });
+});
+
+describe("exceptions", () => {
+    it("compiling android goes as expected", () => {
+        // Aqui estamos llamando a la función compileAndroidCode y luego probamos si la llamada arroja un error
+        expect(() => {
+            compileAndroidCode();
+        }).toThrow();
+        // Otra forma de escribirlo:
+        expect(() => compileAndroidCode()).toThrow();
+        // Tambien podemos decirle que arroje un error
+        expect(() => compileAndroidCode()).toThrow(Error);
+        // Tambien podemos decirle que arroje un error con un mensaje
+        expect(() => compileAndroidCode()).toThrow("you are using the wrong JDK");
+    });
+});
