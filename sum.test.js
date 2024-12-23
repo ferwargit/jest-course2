@@ -57,3 +57,18 @@ describe("truthy or falsy for empty string", () => {
     });
 });
 
+describe("numbers", () => {
+    it("two plus two is four", () => {
+        const value = 2 + 2;
+        expect(value).toBe(4);
+        // Podemos esperar que este valor sea mayor que 3
+        expect(value).toBeGreaterThan(3);
+        // Podemos esperar que este valor sea mayor o igual que 3
+        expect(value).toBeGreaterThanOrEqual(3);
+        // Podemos esperar que este valor sea menor que 5
+        expect(value).toBeLessThan(5);
+        // Podemos esperar que este valor sea menor o igual que 5
+        expect(value).toBeLessThanOrEqual(5);
+    });
+});
+
