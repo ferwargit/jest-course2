@@ -70,5 +70,13 @@ describe("numbers", () => {
         // Podemos esperar que este valor sea menor o igual que 5
         expect(value).toBeLessThanOrEqual(5);
     });
+
+    it("adding floating point numbers", () => {
+        const value = 0.1 + 0.2;
+        expect(value).toBeCloseTo(0.3);
+    });
+
 });
 
+
+    
